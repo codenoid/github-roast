@@ -13,7 +13,7 @@
 		{ value: 'english', label: 'English' },
 		{ value: 'france', label: 'France' },
 		{ value: 'indonesian', label: 'Indonesian' },
-		{ value: 'indian', label: 'India' },
+		{ value: 'indian', label: 'Hindi' },
 		{ value: 'korean', label: 'Korean' },
 		{ value: 'japanese', label: 'Japanese' },
 		{ value: 'chinese', label: 'Chinese' }
