@@ -23,9 +23,7 @@
 		mounted = true;
 	});
 
-	async function handleRoast(event) {
-		event.preventDefault(); // prevent the default form submission behavior
-
+	async function handleRoast() {
 		if (!username) return;
 
 		loading = true;
@@ -51,6 +49,11 @@
 			loading = false;
 		}
 	}
+
+	function handleKeyDown(event) {
+		event.key === 'Enter' && handleRoast();
+	}
+
 </script>
 
 <svelte:head>
@@ -60,40 +63,36 @@
 <div class="container mx-auto p-4 max-w-md">
 	<h1 class="text-3xl font-bold mb-4 text-center text-purple-600">GitHub Roaster</h1>
 
-	<!-- wrap input and button in a <form> element
-		 changed on:click to on:submit
-	-->
-	<form on:submit={handleRoast}>
-		<div class="mb-4">
-			<input
-				type="text"
-				bind:value={username}
-				placeholder="Enter GitHub username"
-				class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-				disabled={loading}
-			/>
-		</div>
+	<div class="mb-4">
+		<input
+			type="text"
+			bind:value={username}
+			placeholder="Enter GitHub username"
+			class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+			disabled={loading}
+			on:keydown={handleKeyDown}
+		/>
+	</div>
 
-		<div class="mb-4">
-			<select
-				bind:value={selectedLanguage}
-				class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-				disabled={loading}
-			>
-				{#each languages as language}
-					<option value={language.value}>{language.label}</option>
-				{/each}
-			</select>
-		</div>
-
-		<button
-			type="submit"
-			class="w-full bg-purple-500 text-white font-bold py-2 px-4 rounded-md hover:bg-purple-600 transition-colors disabled:bg-purple-300 disabled:cursor-not-allowed"
-			disabled={loading || !username}
+	<div class="mb-4">
+		<select
+			bind:value={selectedLanguage}
+			class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+			disabled={loading}
 		>
-			{loading ? 'Roasting...' : 'Roast This GitHub!'}
-		</button>
-	</form>
+			{#each languages as language}
+				<option value={language.value}>{language.label}</option>
+			{/each}
+		</select>
+	</div>
+
+	<button
+		on:click={handleRoast}
+		class="w-full bg-purple-500 text-white font-bold py-2 px-4 rounded-md hover:bg-purple-600 transition-colors disabled:bg-purple-300 disabled:cursor-not-allowed"
+		disabled={loading || !username}
+	>
+		{loading ? 'Roasting...' : 'Roast This GitHub!'}
+	</button>
 
 	{#if roast && mounted}
 		<div class="mt-6 relative bg-gray-100 p-4 rounded-lg" transition:fade={{ duration: 300 }}>
