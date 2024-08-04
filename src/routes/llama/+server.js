@@ -12,10 +12,26 @@ let headers = {
 	'User-Agent': 'github-roast.pages.dev'
 };
 
+const validLanguages = [
+    'english',
+    'indonesian',
+    'indian',
+    'chinese',
+    'japanese',
+    'korean',
+    'france',
+    'polish',
+    'vietnamese'
+];
+
 export async function POST({ request, platform }) {
 	let answerdebug = '';
 	const { username, language } = await request.json();
 
+	if (!validLanguages.includes(language)) {
+        	return json({ error: 'invalid language specified, please pass a valid language.' }, { status: 400 });
+    	}
+	
 	if (GITHUB_API_KEY) {
 		headers['Authorization'] = `token ${GITHUB_API_KEY}`;
 	}
@@ -119,6 +135,17 @@ export async function POST({ request, platform }) {
 			break;
 		case 'france':
 			prompt = `fais une courte et cruelle critique sarcastique en argot pour le profil GitHub suivant : ${username}. Voici les détails : "${JSON.stringify(datas)}"`;
+			break;
+		case 'german':
+			prompt = `machen sie eine grausame, kurze, harte und sarkastische Röstung auf Deutsch und verwenden Sie Wortspiele und Slang, um Humor in das folgende Github-Profil zu bringen : ${username}. Hier sind die Details : "${JSON.stringify(datas)}"`;
+			break;
+		case 'arabic':
+			prompt = `.${JSON.stringify(datas)}: اليك هذه التفصيل .${username} :(GitHub) قدم سخرية قصيرة و قاصية على الملف الشخصي في`;
+		case 'italian':
+			prompt = `Criticami in modo sarcastico il seguente profilo GitHub: ${username}. Ecco alcuni dettagli: "${JSON.stringify(datas)}"`;
+			break;
+		case 'polish':
+			prompt = `krótko i ostro skrytykuj poniższy profil GitHub: ${username}. Oto szczegóły: "${JSON.stringify(datas)}"`;
 			break;
 		case 'vietnamese':
 			prompt = `Hãy đưa ra một lời châm chọc ngắn gọn và tàn nhẫn bằng tiếng lóng cho hồ sơ GitHub sau: ${username}. Đây là chi tiết: "${JSON.stringify(datas)}"`;
