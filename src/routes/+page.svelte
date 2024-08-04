@@ -18,6 +18,7 @@
 		{ value: 'japanese', label: 'Japanese' },
 		{ value: 'chinese', label: 'Chinese' },
 		{ value: 'vietnamese', label: 'Vietnamese' },
+                { value: 'portuguese', label: 'Portuguese' },
 
 	];
 
