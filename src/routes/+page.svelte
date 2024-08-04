@@ -12,12 +12,16 @@
 	const languages = [
 		{ value: 'english', label: 'English' },
 		{ value: 'france', label: 'France' },
+		{ value: 'italian', label: 'Italian' },
 		{ value: 'indonesian', label: 'Indonesian' },
 		{ value: 'indian', label: 'Hindi' },
 		{ value: 'korean', label: 'Korean' },
 		{ value: 'japanese', label: 'Japanese' },
 		{ value: 'chinese', label: 'Chinese' },
 		{ value: 'german', label: 'German' },
+		{ value: 'arabic', label: 'Arabic' },
+		{ value: 'vietnamese', label: 'Vietnamese' },
+		{ value: 'polish', label: 'Polish' }
 	];
 
 	onMount(() => {
@@ -50,6 +54,11 @@
 			loading = false;
 		}
 	}
+
+	function handleKeyDown(event) {
+		event.key === 'Enter' && handleRoast();
+	}
+
 </script>
 
 <svelte:head>
@@ -66,6 +75,7 @@
 			placeholder="Enter GitHub username"
 			class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
 			disabled={loading}
+			on:keydown={handleKeyDown}
 		/>
 	</div>
 
