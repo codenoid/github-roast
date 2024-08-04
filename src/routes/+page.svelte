@@ -12,6 +12,7 @@
 	const languages = [
 		{ value: 'english', label: 'English' },
 		{ value: 'france', label: 'France' },
+		{ value: 'italian', label: 'Italian' },
 		{ value: 'indonesian', label: 'Indonesian' },
 		{ value: 'indian', label: 'Hindi' },
 		{ value: 'korean', label: 'Korean' },
@@ -19,6 +20,7 @@
 		{ value: 'chinese', label: 'Chinese' },
 		{ value: 'arabic', label: 'Arabic' },
 		{ value: 'vietnamese', label: 'Vietnamese' },
+		{ value: 'polish', label: 'Polish' }
 	];
 
 	onMount(() => {
