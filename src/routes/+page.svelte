@@ -21,6 +21,7 @@
 		{ value: 'german', label: 'German' },
 		{ value: 'arabic', label: 'Arabic' },
 		{ value: 'vietnamese', label: 'Vietnamese' },
+    { value: 'finnish', label: 'Finnish' },
     { value: 'portuguese', label: 'Portuguese' },
 		{ value: 'polish', label: 'Polish' }
 	];
