@@ -150,9 +150,9 @@ export async function POST({ request, platform }) {
 		case 'vietnamese':
 			prompt = `Hãy đưa ra một lời châm chọc ngắn gọn và tàn nhẫn bằng tiếng lóng cho hồ sơ GitHub sau: ${username}. Đây là chi tiết: "${JSON.stringify(datas)}"`;
 			break;
-		default: // english and any other undefined languages
-		        prompt = `give a short and harsh roasting for the following github profile: ${username}. Here are the details: "${JSON.stringify(datas)}"`;
-		        break;
+		case 'portuguese':
+			prompt = `faça uma crítica curta e dura para o seguinte perfil do github: ${username}. Aqui estão os detalhes: "${JSON.stringify(datas)}"`;
+			break;
 	}
 
 	// answerdebug += prompt + '\n';
