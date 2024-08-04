@@ -17,7 +17,7 @@
 		{ value: 'korean', label: 'Korean' },
 		{ value: 'japanese', label: 'Japanese' },
 		{ value: 'chinese', label: 'Chinese' },
-		{ value: 'arabic', label: 'Arabi' }
+		{ value: 'arabic', label: 'Arabic' }
 	];
 
 	onMount(() => {
