@@ -20,6 +20,7 @@ const validLanguages = [
     'japanese',
     'korean',
     'france',
+    'polish',
     'vietnamese'
 ];
 
@@ -134,6 +135,9 @@ export async function POST({ request, platform }) {
 			break;
 		case 'france':
 			prompt = `fais une courte et cruelle critique sarcastique en argot pour le profil GitHub suivant : ${username}. Voici les détails : "${JSON.stringify(datas)}"`;
+			break;
+		case 'polish':
+			prompt = `krótko i ostro skrytykuj poniższy profil GitHub: ${username}. Oto szczegóły: "${JSON.stringify(datas)}"`;
 			break;
 		case 'vietnamese':
 			prompt = `Hãy đưa ra một lời châm chọc ngắn gọn và tàn nhẫn bằng tiếng lóng cho hồ sơ GitHub sau: ${username}. Đây là chi tiết: "${JSON.stringify(datas)}"`;
