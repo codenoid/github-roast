@@ -20,6 +20,7 @@ const validLanguages = [
     'japanese',
     'korean',
     'france',
+    'polish',
     'vietnamese'
 ];
 
