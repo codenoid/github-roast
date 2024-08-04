@@ -12,10 +12,26 @@ let headers = {
 	'User-Agent': 'github-roast.pages.dev'
 };
 
+const validLanguages = [
+    'english',
+    'indonesian',
+    'indian',
+    'chinese',
+    'japanese',
+    'korean',
+    'france',
+    'polish',
+    'vietnamese'
+];
+
 export async function POST({ request, platform }) {
 	let answerdebug = '';
 	const { username, language } = await request.json();
 
+	if (!validLanguages.includes(language)) {
+        	return json({ error: 'invalid language specified, please pass a valid language.' }, { status: 400 });
+    	}
+	
 	if (GITHUB_API_KEY) {
 		headers['Authorization'] = `token ${GITHUB_API_KEY}`;
 	}
@@ -109,7 +125,7 @@ export async function POST({ request, platform }) {
 			prompt = `इस गिटहब प्रोफाइल के लिए एक क्रूर और व्यंग्यात्मक रोस्टिंग गली भाषा में दें: ${username}। विवरण इस प्रकार है: "${JSON.stringify(datas)}"`;
 			break;
 		case 'chinese':
-			prompt = `用俚语对以下GitHub个人资料进行短暂而残酷的讽刺：${username}。以下是详细信息: "${JSON.stringify(datas)}"`;
+			prompt = `用中文俚语对以下GitHub个人资料进行短暂而残酷的讽刺：${username}。以下是详细信息: "${JSON.stringify(datas)}"`;
 			break;
 		case 'japanese':
 			prompt = `以下のGitHubプロフィールに対して残酷で皮肉な短いローストをギャル語でしてください: ${username}。詳細は次の通りです: "${JSON.stringify(datas)}"`;
@@ -123,6 +139,15 @@ export async function POST({ request, platform }) {
 		case 'italian':
 			prompt = `Criticami in modo sarcastico il seguente profilo GitHub: ${username}. Ecco alcuni dettagli: "${JSON.stringify(datas)}"`;
 			break;
+		case 'polish':
+			prompt = `krótko i ostro skrytykuj poniższy profil GitHub: ${username}. Oto szczegóły: "${JSON.stringify(datas)}"`;
+			break;
+		case 'vietnamese':
+			prompt = `Hãy đưa ra một lời châm chọc ngắn gọn và tàn nhẫn bằng tiếng lóng cho hồ sơ GitHub sau: ${username}. Đây là chi tiết: "${JSON.stringify(datas)}"`;
+			break;
+		default: // english and any other undefined languages
+		        prompt = `give a short and harsh roasting for the following github profile: ${username}. Here are the details: "${JSON.stringify(datas)}"`;
+		        break;
 	}
 
 	// answerdebug += prompt + '\n';
