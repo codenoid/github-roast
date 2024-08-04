@@ -109,7 +109,7 @@ export async function POST({ request, platform }) {
 			prompt = `इस गिटहब प्रोफाइल के लिए एक क्रूर और व्यंग्यात्मक रोस्टिंग गली भाषा में दें: ${username}। विवरण इस प्रकार है: "${JSON.stringify(datas)}"`;
 			break;
 		case 'chinese':
-			prompt = `用俚语对以下GitHub个人资料进行短暂而残酷的讽刺：${username}。以下是详细信息: "${JSON.stringify(datas)}"`;
+			prompt = `用中文俚语对以下GitHub个人资料进行短暂而残酷的讽刺：${username}。以下是详细信息: "${JSON.stringify(datas)}"`;
 			break;
 		case 'japanese':
 			prompt = `以下のGitHubプロフィールに対して残酷で皮肉な短いローストをギャル語でしてください: ${username}。詳細は次の通りです: "${JSON.stringify(datas)}"`;
