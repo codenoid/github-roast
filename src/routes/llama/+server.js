@@ -136,6 +136,8 @@ export async function POST({ request, platform }) {
 		case 'france':
 			prompt = `fais une courte et cruelle critique sarcastique en argot pour le profil GitHub suivant : ${username}. Voici les détails : "${JSON.stringify(datas)}"`;
 			break;
+		case 'arabic':
+			prompt = `.${JSON.stringify(datas)}: اليك هذه التفصيل .${username} :(GitHub) قدم سخرية قصيرة و قاصية على الملف الشخصي في`;
 		case 'italian':
 			prompt = `Criticami in modo sarcastico il seguente profilo GitHub: ${username}. Ecco alcuni dettagli: "${JSON.stringify(datas)}"`;
 			break;
