@@ -18,6 +18,7 @@
 		{ value: 'korean', label: 'Korean' },
 		{ value: 'japanese', label: 'Japanese' },
 		{ value: 'chinese', label: 'Chinese' },
+		{ value: 'german', label: 'German' },
 		{ value: 'arabic', label: 'Arabic' },
 		{ value: 'vietnamese', label: 'Vietnamese' },
 		{ value: 'polish', label: 'Polish' }
