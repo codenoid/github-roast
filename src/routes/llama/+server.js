@@ -21,7 +21,8 @@ const validLanguages = [
     'korean',
     'france',
     'polish',
-    'vietnamese'
+    'vietnamese',
+    'arabic'
 ];
 
 export async function POST({ request, platform }) {
