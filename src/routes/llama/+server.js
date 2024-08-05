@@ -13,15 +13,16 @@ let headers = {
 };
 
 const validLanguages = [
-    'english',
-    'indonesian',
-    'indian',
-    'chinese',
-    'japanese',
-    'korean',
-    'france',
-    'polish',
-    'vietnamese'
+	'english',
+	'indonesian',
+	'indian',
+	'chinese',
+	'japanese',
+	'korean',
+	'france',
+	'polish',
+	'vietnamese',
+	'arabic'
 ];
 
 export async function POST({ request, platform }) {
@@ -29,9 +30,12 @@ export async function POST({ request, platform }) {
 	const { username, language } = await request.json();
 
 	if (!validLanguages.includes(language)) {
-        	return json({ error: 'invalid language specified, please pass a valid language.' }, { status: 400 });
-    	}
-	
+		return json(
+			{ error: 'invalid language specified, please pass a valid language.' },
+			{ status: 400 }
+		);
+	}
+
 	if (GITHUB_API_KEY) {
 		headers['Authorization'] = `token ${GITHUB_API_KEY}`;
 	}
@@ -152,7 +156,7 @@ export async function POST({ request, platform }) {
 			break;
 		case 'finnish':
 			prompt = `Kirjoita lyhyt, julma ja sarkastinen arvostelu slangilla seuraavalle Github-profiilille: ${username}. Tässä on profiilin yksityiskohdat: "${JSON.stringify(datas)}"`;
-      break;
+			break;
 		case 'portuguese':
 			prompt = `faça uma crítica curta e dura para o seguinte perfil do github: ${username}. Aqui estão os detalhes: "${JSON.stringify(datas)}"`;
 			break;
