@@ -22,7 +22,8 @@ const validLanguages = [
 	'france',
 	'polish',
 	'vietnamese',
-	'arabic'
+	'arabic',
+	'traditionalChinese'
 ];
 
 export async function POST({ request, platform }) {
@@ -159,6 +160,9 @@ export async function POST({ request, platform }) {
 			break;
 		case 'portuguese':
 			prompt = `faça uma crítica curta e dura para o seguinte perfil do github: ${username}. Aqui estão os detalhes: "${JSON.stringify(datas)}"`;
+			break;
+		case 'traditionalChinese':
+			prompt = `請用正體中文及道地台灣俗語，對這個 GitHub 帳號殘酷地吐槽一番：${username}。以下是這個帳號的詳細資訊: "${JSON.stringify(datas)}"`;
 			break;
 	}
 
