@@ -160,6 +160,9 @@ export async function POST({ request, platform }) {
 		case 'portuguese':
 			prompt = `faça uma crítica curta e dura para o seguinte perfil do github: ${username}. Aqui estão os detalhes: "${JSON.stringify(datas)}"`;
 			break;
+		case 'turkish':
+			prompt = `${username} isimli GitHub profilini kısa ve sert bir şekilde linçle. Detaylar burda: "${JSON.stringify(datas)}"`;
+			break;
 	}
 
 	// answerdebug += prompt + '\n';
