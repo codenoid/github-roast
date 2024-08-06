@@ -1,5 +1,6 @@
 import { OPENAI_API_KEY, GITHUB_API_KEY } from '$env/static/private';
 import OpenAI from 'openai';
+import { languages } from "../localization";
 import { json } from '@sveltejs/kit';
 
 const client = new OpenAI({
@@ -12,24 +13,10 @@ let headers = {
 	'User-Agent': 'github-roast.pages.dev'
 };
 
-const validLanguages = [
-	'english',
-	'indonesian',
-	'indian',
-	'chinese',
-	'japanese',
-	'korean',
-	'france',
-	'polish',
-	'vietnamese',
-	'arabic'
-];
-
 export async function POST({ request, platform }) {
-	let answerdebug = '';
 	const { username, language } = await request.json();
 
-	if (!validLanguages.includes(language)) {
+	if (languages[language] == null) {
 		return json(
 			{ error: 'invalid language specified, please pass a valid language.' },
 			{ status: 400 }
@@ -120,47 +107,7 @@ export async function POST({ request, platform }) {
 			.slice(0, 15)
 	};
 
-	let prompt = `give a short and harsh roasting for the following github profile: ${username}. Here are the details: "${JSON.stringify(datas)}"`;
-	switch (language) {
-		case 'indonesian':
-			prompt = `gunakan bahasa indonesia yang normal seperti manusia gaul, berikan roasting singkat dengan kejam dan menyindir dalam bahasa gaul untuk profile github berikut : ${username}. Berikut detailnya: "${JSON.stringify(datas)}"`;
-			break;
-		case 'indian':
-			prompt = `इस गिटहब प्रोफाइल के लिए एक क्रूर और व्यंग्यात्मक रोस्टिंग गली भाषा में दें: ${username}। विवरण इस प्रकार है: "${JSON.stringify(datas)}"`;
-			break;
-		case 'chinese':
-			prompt = `用中文俚语对以下GitHub个人资料进行短暂而残酷的讽刺：${username}。以下是详细信息: "${JSON.stringify(datas)}"`;
-			break;
-		case 'japanese':
-			prompt = `以下のGitHubプロフィールに対して残酷で皮肉な短いローストをギャル語でしてください: ${username}。詳細は次の通りです: "${JSON.stringify(datas)}"`;
-			break;
-		case 'korean':
-			prompt = `다음 GitHub 프로필에 대해 잔인하고 비꼬는 짧은 로스팅을 속어로 해주세요: ${username}. 자세한 내용은 다음과 같습니다: "${JSON.stringify(datas)}"`;
-			break;
-		case 'france':
-			prompt = `fais une courte et cruelle critique sarcastique en argot pour le profil GitHub suivant : ${username}. Voici les détails : "${JSON.stringify(datas)}"`;
-			break;
-		case 'german':
-			prompt = `machen sie eine grausame, kurze, harte und sarkastische Röstung auf Deutsch und verwenden Sie Wortspiele und Slang, um Humor in das folgende Github-Profil zu bringen : ${username}. Hier sind die Details : "${JSON.stringify(datas)}"`;
-			break;
-		case 'arabic':
-			prompt = `.${JSON.stringify(datas)}: اليك هذه التفصيل .${username} :(GitHub) قدم سخرية قصيرة و قاصية على الملف الشخصي في`;
-		case 'italian':
-			prompt = `Criticami in modo sarcastico il seguente profilo GitHub: ${username}. Ecco alcuni dettagli: "${JSON.stringify(datas)}"`;
-			break;
-		case 'polish':
-			prompt = `krótko i ostro skrytykuj poniższy profil GitHub: ${username}. Oto szczegóły: "${JSON.stringify(datas)}"`;
-			break;
-		case 'vietnamese':
-			prompt = `Hãy đưa ra một lời châm chọc ngắn gọn và tàn nhẫn bằng tiếng lóng cho hồ sơ GitHub sau: ${username}. Đây là chi tiết: "${JSON.stringify(datas)}"`;
-			break;
-		case 'finnish':
-			prompt = `Kirjoita lyhyt, julma ja sarkastinen arvostelu slangilla seuraavalle Github-profiilille: ${username}. Tässä on profiilin yksityiskohdat: "${JSON.stringify(datas)}"`;
-			break;
-		case 'portuguese':
-			prompt = `faça uma crítica curta e dura para o seguinte perfil do github: ${username}. Aqui estão os detalhes: "${JSON.stringify(datas)}"`;
-			break;
-	}
+	let prompt = languages[language].buildPrompt(username, datas);
 
 	// answerdebug += prompt + '\n';
 	try {
