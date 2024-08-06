@@ -23,7 +23,8 @@
 		{ value: 'vietnamese', label: 'Vietnamese' },
 		{ value: 'finnish', label: 'Finnish' },
 		{ value: 'portuguese', label: 'Portuguese' },
-		{ value: 'polish', label: 'Polish' }
+		{ value: 'polish', label: 'Polish' },
+		{ value: 'traditionalChinese', label: 'Traditional Chinese' }
 	];
 
 	onMount(() => {
