@@ -185,7 +185,7 @@ export async function POST({ request, platform }) {
 				.bind(
 					username,
 					roast,
-					parseInt(new Date().getTime() / 1000),
+					Math.floor(new Date().getTime() / 1000),
 					request?.cf?.country || '',
 					sha256(request.headers.get('cf-connecting-ip')) || ''
 				)
