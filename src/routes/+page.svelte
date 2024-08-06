@@ -2,29 +2,13 @@
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import SvelteMarkdown from 'svelte-markdown';
+	import { languages } from "./localization"
 
 	let username = '';
 	let roast = '';
 	let loading = false;
 	let mounted = false;
 	let selectedLanguage = 'english';
-
-	const languages = [
-		{ value: 'english', label: 'English' },
-		{ value: 'france', label: 'France' },
-		{ value: 'italian', label: 'Italian' },
-		{ value: 'indonesian', label: 'Indonesian' },
-		{ value: 'indian', label: 'Hindi' },
-		{ value: 'korean', label: 'Korean' },
-		{ value: 'japanese', label: 'Japanese' },
-		{ value: 'chinese', label: 'Chinese' },
-		{ value: 'german', label: 'German' },
-		{ value: 'arabic', label: 'Arabic' },
-		{ value: 'vietnamese', label: 'Vietnamese' },
-		{ value: 'finnish', label: 'Finnish' },
-		{ value: 'portuguese', label: 'Portuguese' },
-		{ value: 'polish', label: 'Polish' }
-	];
 
 	onMount(() => {
 		mounted = true;
@@ -86,8 +70,8 @@
 			class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
 			disabled={loading}
 		>
-			{#each languages as language}
-				<option value={language.value}>{language.label}</option>
+			{#each Object.entries(languages) as [languageKey, language]}
+				<option value={languageKey}>{language.name}</option>
 			{/each}
 		</select>
 	</div>
