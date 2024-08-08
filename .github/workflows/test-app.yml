@@ -1,0 +1,30 @@
+name: Test the app 
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+       
+      - name: Install Nix package manager
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Setup Nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Install dependencies
+        run: |
+          nix develop --command npm install
+
+      - name: Build the web-app
+        run: |
+          nix develop --command npm run build
+
+
