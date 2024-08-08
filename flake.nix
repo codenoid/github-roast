@@ -1,5 +1,5 @@
 {
-description = "Spicy GitHub Roast 🔥";
+  description = "Spicy GitHub Roast 🔥";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
@@ -29,8 +29,9 @@ description = "Spicy GitHub Roast 🔥";
           '';
 
           env = {
-                # In case u want
-                # foo = bar;
+            OPENAI_API_KEY = H4nM7xP9LkS2VwQbR6cZpJ8D0oF5YtI3uN1lXgG;
+            GITHUB_API_KEY = Z8pQ1yE6CkR5XvA2jB9M0dW4L3sT7oNfH1U6rGx;
+
           };
 
         };
