@@ -28,6 +28,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"lokal-vite-plugin": "^0.0.1",
 		"openai": "^4.54.0",
 		"svelte-markdown": "^0.4.1"
 	}

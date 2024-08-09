@@ -37,6 +37,15 @@ export async function POST({ request, platform }) {
 		);
 	}
 
+	const history = await platform.env.DB.prepare(
+		'SELECT * FROM roasts WHERE gh_username = ? AND language = ?'
+	)
+		.bind(username, language)
+		.first();
+	if (history) {
+		return json({ roast: history.response, username, language });
+	}
+
 	if (GITHUB_API_KEY) {
 		headers['Authorization'] = `token ${GITHUB_API_KEY}`;
 	}
@@ -169,7 +178,7 @@ export async function POST({ request, platform }) {
 	// answerdebug += prompt + '\n';
 	try {
 		const completion = await client.chat.completions.create({
-			model: 'gpt-4o',
+			model: 'gpt-4o-mini',
 			stream: false,
 			messages: [
 				{
@@ -184,14 +193,15 @@ export async function POST({ request, platform }) {
 		const roast = completion.choices[0].message.content;
 		try {
 			await platform.env.DB.prepare(
-				'INSERT INTO roasts (gh_username, response, created_at, country, ip_address) VALUES (?, ?, ?, ?, ?)'
+				'INSERT INTO roasts (gh_username, response, created_at, country, ip_address, language) VALUES (?, ?, ?, ?, ?, ?)'
 			)
 				.bind(
 					username,
 					roast,
 					Math.floor(new Date().getTime() / 1000),
 					request?.cf?.country || '',
-					sha256(request.headers.get('cf-connecting-ip')) || ''
+					sha256(request.headers.get('cf-connecting-ip')) || '',
+					language
 				)
 				.run();
 		} catch {}

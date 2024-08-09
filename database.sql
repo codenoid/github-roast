@@ -4,7 +4,8 @@ CREATE TABLE roasts (
   gh_username text NOT NULL,
   response text NOT NULL,
   created_at text NOT NULL,
-  country text NOT NULL
+  country text NOT NULL,
+  language text NULL
 );
 DELETE FROM sqlite_sequence;
 CREATE INDEX gh_username_idx ON roasts (gh_username);
