@@ -24,7 +24,8 @@
 		{ value: 'finnish', label: 'Finnish' },
 		{ value: 'portuguese', label: 'Portuguese' },
 		{ value: 'polish', label: 'Polish' },
-		{ value: 'traditionalChinese', label: 'Traditional Chinese' }
+		{ value: 'traditionalChinese', label: 'Traditional Chinese' },
+		{ value: 'spanish', label: 'Spanish' }
 	];
 
 	onMount(() => {
