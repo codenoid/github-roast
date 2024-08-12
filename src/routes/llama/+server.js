@@ -173,6 +173,9 @@ export async function POST({ request, platform }) {
 		case 'traditionalChinese':
 			prompt = `請用正體中文及道地台灣俗語，對這個 GitHub 帳號殘酷地吐槽一番：${username}。以下是這個帳號的詳細資訊: "${JSON.stringify(datas)}"`;
 			break;
+		case 'catalan':
+			prompt = `Fes una curta i sarcàstica crítica del següent perfil de GitHub: ${username}. Aquí tens els detalls: "${JSON.stringify(datas)}"`;
+			break;
 	}
 
 	// answerdebug += prompt + '\n';
