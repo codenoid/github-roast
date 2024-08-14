@@ -11,20 +11,20 @@
 
 	const languages = [
 		{ value: 'english', label: 'English' },
-		{ value: 'france', label: 'France' },
-		{ value: 'italian', label: 'Italian' },
+		{ value: 'france', label: 'Français (French)' },
+		{ value: 'italian', label: 'Italiano (Italian)' },
 		{ value: 'indonesian', label: 'Indonesian' },
-		{ value: 'indian', label: 'Hindi' },
-		{ value: 'korean', label: 'Korean' },
-		{ value: 'japanese', label: 'Japanese' },
-		{ value: 'chinese', label: 'Chinese' },
-		{ value: 'german', label: 'German' },
-		{ value: 'arabic', label: 'Arabic' },
-		{ value: 'vietnamese', label: 'Vietnamese' },
-		{ value: 'finnish', label: 'Finnish' },
-		{ value: 'portuguese', label: 'Portuguese' },
-		{ value: 'polish', label: 'Polish' },
-		{ value: 'traditionalChinese', label: 'Traditional Chinese' }
+		{ value: 'indian', label: 'हिंदी (Hindi)' },
+		{ value: 'korean', label: '한국어 (Korean)' },
+		{ value: 'japanese', label: '日本語 (Japanese)' },
+		{ value: 'chinese', label: '中文 (Chinese)' },
+		{ value: 'german', label: 'Deútsche (German)' },
+		{ value: 'arabic', label: 'العربية (Arabic)' },
+		{ value: 'vietnamese', label: 'Tiếng việt (Vietnamese)' },
+		{ value: 'finnish', label: 'Suomi (Finnish)' },
+		{ value: 'portuguese', label: 'Português (Portuguese)' },
+		{ value: 'polish', label: 'język polski (Polish)' },
+		{ value: 'traditionalChinese', label: '中文(臺灣) (Traditional Chinese)' }
 	];
 
 	onMount(() => {
