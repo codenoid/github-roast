@@ -11,7 +11,7 @@
 
 	const languages = [
 		{ value: 'english', label: 'English' },
-		{ value: 'france', label: 'Français (French)' },
+		{ value: 'french', label: 'Français (French)' },
 		{ value: 'italian', label: 'Italiano (Italian)' },
 		{ value: 'indonesian', label: 'Indonesian' },
 		{ value: 'indian', label: 'हिंदी (Hindi)' },
