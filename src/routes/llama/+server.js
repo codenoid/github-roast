@@ -19,7 +19,7 @@ const validLanguages = [
 	'chinese',
 	'japanese',
 	'korean',
-	'france',
+	'french',
 	'polish',
 	'vietnamese',
 	'arabic',
