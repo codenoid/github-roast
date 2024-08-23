@@ -19,7 +19,7 @@ const validLanguages = [
 	'chinese',
 	'japanese',
 	'korean',
-	'france',
+	'french',
 	'polish',
 	'vietnamese',
 	'arabic',
@@ -147,7 +147,7 @@ export async function POST({ request, platform }) {
 		case 'korean':
 			prompt = `다음 GitHub 프로필에 대해 잔인하고 비꼬는 짧은 로스팅을 속어로 해주세요: ${username}. 자세한 내용은 다음과 같습니다: "${JSON.stringify(datas)}"`;
 			break;
-		case 'france':
+		case 'french':
 			prompt = `fais une courte et cruelle critique sarcastique en argot pour le profil GitHub suivant : ${username}. Voici les détails : "${JSON.stringify(datas)}"`;
 			break;
 		case 'german':
