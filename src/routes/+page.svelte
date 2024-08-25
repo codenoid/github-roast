@@ -117,9 +117,10 @@
 			goes wrong
 		</p>
 		<p>
-			<a class="text-blue-500" target="_blank" href="https://github.com/codenoid/github-roast"
-				>Source code on GitHub</a
-			>
+			<a class="text-blue-500" target="_blank" href="https://github.com/codenoid/github-roast">Source code on GitHub</a>
+		</p>
+		<p>
+			<a class="text-blue-500" target="_blank" href="https://github.com/codenoid/github-roast/issues/47">Permanently opt out and delete all roasts related to your GitHub account.</a>
 		</p>
 	</div>
 </div>
