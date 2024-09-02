@@ -106,7 +106,7 @@
 			<div
 				class="absolute top-0 left-4 -mt-2 w-0 h-0 border-8 border-transparent border-b-gray-100"
 			></div>
-			<p class="text-gray-800"><SvelteMarkdown source={roast} /></p>
+			<p class="text-gray-800" aria-live="assertive"><SvelteMarkdown source={roast} /></p>
 		</div>
 	{/if}
 
